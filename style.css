@@ -11,6 +11,10 @@ details {
     padding-left: 20px;
 }
 
+.indent2 {
+    padding-left: 40px;
+}
+
 table, th, td {
     padding: 4px;
     border: 1px solid black;
