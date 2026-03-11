@@ -47,7 +47,7 @@ function generate_results(modifier) {
 };
 
 btnMicroEncounters_less_danger.addEventListener('click', () => {
-    const modifier = 1;
+    const modifier = 2;
     generate_results(modifier);
 });
 
@@ -57,6 +57,6 @@ btnMicroEncounters_default.addEventListener('click', () => {
 });
 
 btnMicroEncounters_more_danger.addEventListener('click', () => {
-    const modifier = -1;
+    const modifier = -2;
     generate_results(modifier);
 });

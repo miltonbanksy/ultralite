@@ -21,5 +21,6 @@ table, th, td {
 }
 
 button {
-    width: 120px;
+    padding: 4px;
+    width: 80px;
 }
