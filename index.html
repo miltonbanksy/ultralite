@@ -9,6 +9,7 @@
 <body>
     <h1>Ultralite RPGs</h1>
     <img class="img-dice spin" id="img-dice-d6" src="d6.png">
+    <img class="img-dice spin" id="img-dice-d10" src="d10.png">
     <img class="img-dice spin" id="img-dice-d20" src="d20.png">
     <span class="eagle-lake-regular" id="display-dice-result"> </span>
     <br><br>
@@ -19,7 +20,7 @@
             <p class="indent2">Name, Role, Skills, Abilities, Gear, 3 Strikes</p>
         </details>
         <details>
-            <summary class="indent">Adjudication (d6)</summary>
+            <summary class="indent">Adjudication V.1 (1d6)</summary>
             <ul>
                 <li>very hard / very unlikely: Roll a 6</li>
                 <li>hard / unlikely: Roll 5 or higher</li>
@@ -28,6 +29,29 @@
                 <li>very easy / very likely: Roll 2 or higher</li>
             </ul>
         </details>
+
+        <details>
+            <summary class="indent">Adjudication V.2 (2d6)</summary>
+            <br>
+            <div class="indent">1. Assign Modifiers:</div>
+            <ul>
+                <li>+3 Very Likely</li>
+                <li>+2 Likely</li>
+                <li>+1: Slightly Likely</li>
+                <li>+0: 50/50 / Equal Chance / Unsure</li>
+                <li>-1: Slighlty Unlikely</li>
+                <li>-2: Unlikely</li>
+                <li>-3: Very Unlikey</li>
+            </ul>
+            <div class="indent">2. Roll 2d6 and check the result:</div>
+            <ul>
+                <li>1-6: Miss - The situation gets worse.</li>
+                <li>7-9: Weak Hit / Success with Complication</li>
+                <li>10-11: Hit</li>
+                <li>12+: Strong Hit / Success with Benefits</li>
+            </ul>
+        </details>
+
         <details>
             <summary class="indent">Micro Encounters (d6)</summary>
             <br>

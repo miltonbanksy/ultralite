@@ -70,6 +70,7 @@ function roll1d6() {
 
 
 const imgDiceD6 = document.querySelector("#img-dice-d6");
+const imgDiceD10 = document.querySelector("#img-dice-d10");
 const imgDiceD20 = document.querySelector("#img-dice-d20");
 const displayDiceResult = document.querySelector("#display-dice-result");
 
@@ -81,7 +82,15 @@ imgDiceD6.addEventListener('click', () => {
         const d6 = Math.floor(Math.random() * 6) +1;
         displayDiceResult.innerHTML = `D6: ${d6}`;
     }, 800);
-    
+});
+
+imgDiceD10.addEventListener('click', () => {
+    displayDiceResult.innerHTML = "";
+    imgDiceD10.classList.toggle('rotated');
+    setTimeout(() => {
+        const d10 = Math.floor(Math.random() * 10) +1;
+        displayDiceResult.innerHTML = `D10: ${d10}`;
+    }, 800);
 });
 
 imgDiceD20.addEventListener('click', () => {
