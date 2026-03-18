@@ -68,6 +68,31 @@ function roll1d6() {
     return Math.floor(Math.random() * 6) +1;
 };
 
+
+const imgDiceD6 = document.querySelector("#img-dice-d6");
+const imgDiceD20 = document.querySelector("#img-dice-d20");
+const displayDiceResult = document.querySelector("#display-dice-result");
+
+// logic for dice...
+imgDiceD6.addEventListener('click', () => {
+    displayDiceResult.innerHTML = "";
+    imgDiceD6.classList.toggle('rotated');
+    setTimeout(() => {
+        const d6 = Math.floor(Math.random() * 6) +1;
+        displayDiceResult.innerHTML = `D6: ${d6}`;
+    }, 800);
+    
+});
+
+imgDiceD20.addEventListener('click', () => {
+    displayDiceResult.innerHTML = "";
+    imgDiceD20.classList.toggle('rotated');
+    setTimeout(() => {
+        const d20 = Math.floor(Math.random() * 20) +1;
+        displayDiceResult.innerHTML = `D20: ${d20}`;
+    }, 800);
+});
+
 function generate_results(modifier) {
     micro_event = roll1d6() + modifier;
 

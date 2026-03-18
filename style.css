@@ -7,6 +7,23 @@ details {
     cursor: default;
 }
 
+.img-dice {
+    width: 40px;
+    height: 40px;
+}
+
+.spin {
+    transition: transform 1.0s ease-in-out;
+}
+
+.rotated {
+    transform: rotate(720deg);
+}
+
+#display-dice-result {
+   font-size: 30px;
+}
+
 .indent {
     padding-left: 20px;
 }
