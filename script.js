@@ -21,7 +21,6 @@ const focuses = {
     6: "props, objects, constructs, etc."
 };
 
-// Not finished!
 const objTropes = {
     "The Leader": "You're good at bringing people together and identifying their strengths and weaknesses. You add +2 instead of +1 when you help someone by telling them what you think one of their strengths is.",
     "The Techie": "You have a ham radio, extra walkie-talkies, a camera, or maybe even a computer. When you use a piece of tech to do something you couldn't do otherwise, add +1 to your roll.",
@@ -107,6 +106,10 @@ const imgDiceD20 = document.querySelector("#img-dice-d20");
 const displayDiceResult = document.querySelector("#display-dice-result");
 
 // logic for dice...
+
+// "Can I refractor these into one..."
+
+
 imgDiceD6.addEventListener('click', () => {
     displayDiceResult.innerHTML = "";
     imgDiceD6.classList.toggle('rotated');
@@ -156,8 +159,28 @@ function generate_results(modifier) {
         `;
 };
 
+// Attempting dynamic risk buttons. Brain fell out.
+/*
+const risk_buttons = [
+    {"button_name": "More Risk", "modifier": -1},
+    {"button_name": "Default", "modifier": 0},
+    {"button_name": "Less Risk", "modifier": 1}
+];
+
+
+
+const btnRiskGroup = document.querySelectorAll('.btn-risk');
+
+btnRiskGroup.forEach(button => {
+    button.addEventListener('click', (event) => {
+        var intValue = parseInt(button)
+    })
+})
+*/
+
+
 btnMicroEncounters_less_danger.addEventListener('click', () => {
-    const modifier = 2;
+    const modifier = 1;
     generate_results(modifier);
 });
 
@@ -167,7 +190,7 @@ btnMicroEncounters_default.addEventListener('click', () => {
 });
 
 btnMicroEncounters_more_danger.addEventListener('click', () => {
-    const modifier = -2;
+    const modifier = -1;
     generate_results(modifier);
 });
 
