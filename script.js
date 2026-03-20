@@ -3,20 +3,20 @@ const btnMicroEncounters_default = document.querySelector('#btn-micro-encounters
 const btnMicroEncounters_more_danger = document.querySelector('#btn-micro-encounters-more-danger');
 const displayMicroEncounters_result = document.querySelector('#display-micro-encounters-result');
 
-const events = [
-    {roll: 1, m_event: "immediate danger"},
-    {roll: 2, m_event: "active threat ahead / advancing"},
-    {roll: 3, m_event: "obstacle, hazard or block ahead"},
-    {roll: 4, m_event: "neutral / uncertain"},
-    {roll: 5, m_event: "opportunity, clue, information"},
-    {roll: 6, m_event: "immediate fortune"}
-];
+const events = {
+    1: "immediate misfortune",
+    2: "threat (advancing or ahead), (mindless or intelligent)",
+    3: "passive threat, obstacle, hazard, block, puzzle",
+    4: "neutral / uncertain",
+    5: "opportunity, clue, information",
+    6: "immediate fortune"
+};
 
 const focuses = [
-    {roll: 1, focus: "environment or theme"},
-    {roll: 2, focus: "environment or theme"},
-    {roll: 3, focus: "NPCs, Creatures, or other lifeforms"},
-    {roll: 4, focus: "NPCs, Creatures, or other lifeforms"},
+    {roll: 1, focus: "environment, atmosphere, landscape, terrain, or theme"},
+    {roll: 2, focus: "environment, atmosphere, landscape, terrain, or theme"},
+    {roll: 3, focus: "NPC(s), creatures(s), other lifeform(s)"},
+    {roll: 4, focus: "NPC(s), creatures(s), other lifeform(s)"},
     {roll: 5, focus: "props, objects, constructs, etc."},
     {roll: 6, focus: "props, objects, constructs, etc."}
 ];
@@ -68,6 +68,15 @@ function roll1d6() {
     return Math.floor(Math.random() * 6) +1;
 };
 
+// Dynamically populate Micro Events (to keep them consistent across differernt displays.)
+const listDynamicEvents = document.querySelector('#list-dynamic-events');
+
+let events_keys = Object.keys(events)
+for (const key in events) {
+    const bullet = document.createElement('ul');
+    bullet.innerHTML = `${key}. ${events[key]}`;
+    listDynamicEvents.appendChild(bullet)
+};
 
 const imgDiceD6 = document.querySelector("#img-dice-d6");
 const imgDiceD10 = document.querySelector("#img-dice-d10");
@@ -115,10 +124,12 @@ function generate_results(modifier) {
 
     micro_focus = roll1d6();
 
-    const found_event = events.find(m => m.roll === micro_event);
+    const events_keys = Object.keys(events);
+    const found_event = events[micro_event];
+    
     const found_focus = focuses.find(f => f.roll === micro_focus);
     displayMicroEncounters_result.innerHTML = `
-        ${found_event.roll}, ${found_event.m_event}
+        ${events_keys[micro_event-1]}, ${found_event}
         <br>${found_focus.roll}, ${found_focus.focus}
         `;
 };
