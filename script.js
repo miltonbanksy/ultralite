@@ -4,21 +4,21 @@ const btnMicroEncounters_more_danger = document.querySelector('#btn-micro-encoun
 const displayMicroEncounters_result = document.querySelector('#display-micro-encounters-result');
 
 const events = {
-    1: "1. immediate misfortune",
-    2: "2. threat (advancing or ahead), (mindless or intelligent)",
-    3: "3. passive threat, obstacle, hazard, block, puzzle",
-    4: "4. neutral / uncertain",
-    5: "5. opportunity, clue, information",
-    6: "6. immediate fortune"
+    1: "immediate misfortune",
+    2: "threat (advancing or ahead), (mindless or intelligent)",
+    3: "passive threat, obstacle, hazard, block, puzzle",
+    4: "neutral / uncertain",
+    5: "opportunity, clue, information",
+    6: "immediate fortune"
 };
 
 const focuses = {
-    1: "1. environment, atmosphere, landscape, terrain, or theme",
-    2: "2. environment, atmosphere, landscape, terrain, or theme",
-    3: "3. NPC(s), creatures(s), other lifeform(s)",
-    4: "4. NPC(s), creatures(s), other lifeform(s)",
-    5: "5. props, objects, constructs, etc.",
-    6: "6. props, objects, constructs, etc."
+    1: "environment, atmosphere, landscape, terrain, or theme",
+    2: "environment, atmosphere, landscape, terrain, or theme",
+    3: "NPC(s), creatures(s), other lifeform(s)",
+    4: "NPC(s), creatures(s), other lifeform(s)",
+    5: "props, objects, constructs, etc.",
+    6: "props, objects, constructs, etc."
 };
 
 // Not finished!
@@ -38,22 +38,29 @@ const objTropes = {
 const listSubjectKnowledge = [
     "animals",
     "art (calligraphy, drawing, origami, modelling, painting, sculpture)",
+    "backyard wrestling",
     "circus",
     "coin collecting",
     "computers",
     "crime",
     "culture / etiquette / manners / society",
+    "debating",
     "DIY",
+    "dumpster diving",
     "electronics / robotics",
     "farming",
     "fashion / beauty / design",
     "first aid / medicine",
-    "food / drink / cooking",
+    "food / drink / cooking / preparation",
     "games (board, card, puzzle, etc.)",
     "geography / geology",
+    "ghost hunting",
     "history(ancient, modern)",
+    "home movies",
     "jewelry",
     "languages",
+    "literature",
+    "lock picking",
     "magic",
     "military",
     "movies",
@@ -64,6 +71,7 @@ const listSubjectKnowledge = [
     "plants / herbs / spices / gardening",
     "politics",
     "puppetry(mime, shadow)",
+    "pyrotechnics / Fireworks",
     "religion",
     "science (biology, chemistry)",
     "scouting (camping, hiking, navigation)",
@@ -80,17 +88,17 @@ function roll1d6() {
 const listDynamicEvents = document.querySelector('#list-dynamic-events');
 const listDynamicFocuses = document.querySelector('#list-dynamic-focuses');
 
-// Display dynamic lists:
-function generate_result_displays(obj, element) {
-    for (const key in obj) {
-        const bullet = document.createElement('ul');
-        bullet.innerHTML = `${obj[key]}`;
+function generate_dynamic_display(obj, element) {
+    
+    for (const [key, value] of Object.entries(obj)) {
+        const bullet = document.createElement('div');
+        bullet.innerHTML = `${key}: ${value}<br>`;
         element.appendChild(bullet);
     }
-};
+}
 
-generate_result_displays(events, listDynamicEvents);
-generate_result_displays(focuses, listDynamicFocuses);
+generate_dynamic_display(events, listDynamicEvents);
+generate_dynamic_display(focuses, listDynamicFocuses);
 
 
 const imgDiceD6 = document.querySelector("#img-dice-d6");
