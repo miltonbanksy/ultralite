@@ -12,15 +12,6 @@ const events = {
     6: "6. immediate fortune"
 };
 
-const focuses2 = [
-    {roll: 1, focus: "environment, atmosphere, landscape, terrain, or theme"},
-    {roll: 2, focus: "environment, atmosphere, landscape, terrain, or theme"},
-    {roll: 3, focus: "NPC(s), creatures(s), other lifeform(s)"},
-    {roll: 4, focus: "NPC(s), creatures(s), other lifeform(s)"},
-    {roll: 5, focus: "props, objects, constructs, etc."},
-    {roll: 6, focus: "props, objects, constructs, etc."}
-];
-
 const focuses = {
     1: "1. environment, atmosphere, landscape, terrain, or theme",
     2: "2. environment, atmosphere, landscape, terrain, or theme",
@@ -33,8 +24,16 @@ const focuses = {
 // Not finished!
 const objTropes = {
     "The Leader": "You're good at bringing people together and identifying their strengths and weaknesses. You add +2 instead of +1 when you help someone by telling them what you think one of their strengths is.",
-    "The Techie": "You have a ham radio, extra walkie-talkies, a camera, or maybe even a computer. When you use a piece of tech to do something you couldn't do otherwise, add +1 to your roll."
-}
+    "The Techie": "You have a ham radio, extra walkie-talkies, a camera, or maybe even a computer. When you use a piece of tech to do something you couldn't do otherwise, add +1 to your roll.",
+    "The Bookworm": "You're the smart one of your group, probably quiet, probably always with your nose in a book. Add +1 to any roll you make to do research or recall information about something.",
+    "The Rebel": "You don't play by anyone's rules but your own. You're a troublemaker and you don't often play well with others. Add +1 to any roll you make to steal, trespass, sneak out of your house, or otherwise break a major rule.",
+    "The Charmer": "You're a smooth-talker, possibly the class clown and probably a really good liar. Add +1 to any roll you make to lie, distract someone, or convince someone of something.",
+    "The Athlete": "You're in good health and good shape and probably have a lot of energy. Add +1 to any rolls you make that require physical exertion, such as fighting or running away.",
+    "The Scout": "You are a girl scout or boy scout, or maybe you've just read the books or been trained by someone else in survival skills. Add +1 to any rolls you make that have to do with surviving in the wild, such as starting a fire, scavenging for food, or following tracks",
+    "The Baby": "You're the youngest or smallest of the group, probably someone's baby brother or sister. Add +1 when you ask an adult for help or resources, or when you try to squeeze into a place that isn't easily accessible.",
+    "The Weirdo": "You don't have a lot of friends. Maybe you're new, or you just have a hard time getting along with other people, but the way your mind works is different somehow. Add +1 when you roll to see what's out of place, find strange things, or sense when something's wrong.",
+    "The Freak": "You're something strange and unusual. Maybe you were born with special powers, or you're an escaped government experiment or an alien. Whatever you are, you have a weird ability, like telekinesis, telepathy, future-sight, or animal mind control. Work with your GM to determine what it is you can do that no one else can. When you use your special ability, add +1 to your roll."
+};
 
 const listSubjectKnowledge = [
     "animals",
@@ -164,8 +163,18 @@ btnMicroEncounters_more_danger.addEventListener('click', () => {
     generate_results(modifier);
 });
 
+// KIDS ON BIKES PBTA
+const listDynamicTropes = document.querySelector('#list-dynamic-tropes');
+
 const btnGetSubjectKnowledge = document.querySelector('#btn-get-subject-knowledge');
 const displaySubjectKnowledge = document.querySelector('#display-subject-knowledge');
+
+// Dynamically display tropes
+for (const [key, value] of Object.entries(objTropes)) {
+    const bullet = document.createElement('li');
+    bullet.innerHTML = `<b>${key}</b>: ${value}`;
+    listDynamicTropes.appendChild(bullet);
+};
 
 btnGetSubjectKnowledge.addEventListener('click', () => {
     const index = Math.floor(Math.random() * listSubjectKnowledge.length);
