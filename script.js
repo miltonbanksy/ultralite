@@ -213,3 +213,33 @@ btnGetSubjectKnowledge.addEventListener('click', () => {
 
     displaySubjectKnowledge.innerHTML = subjectKnowledge;
 });
+
+
+// PLANCK RULES
+const planck_difficulty = [
+    "easy: 4+",
+    "average: 6+",
+    "difficult: 8+",
+    "formidable: 10+"
+];
+
+const planck_damage = [
+    "very light: 1d3",
+    "light: 1d6",
+    "medium: 2d6",
+    "heavy: 3d6",
+    "very heavy: 4d6"
+];
+
+const planck_classes = [
+    "Agent: CBT-1, PHY-0, SOC-2, TCH-1",
+    "Army: CBT-2, PHY-1, TCH-1",
+    "Belter: CBT-0, PHY-0, SPC-2, TCH-2",
+    "Marine: CBT-2, PHY-1, SPC-1",
+    "Merchant: CBT-0, PHY-0, SPC-2, SOC-2",
+    "Navy: CBT-1, PHY-0, SPC-2, TCH-1",
+    "Noble: CBT-0, PHY-0, KWL-1, SOC-3",
+    "Rogue: CBT-0, PHY-2, SOC-2",
+    "Scholar: CBT-0, KWL-3, PHY-0, TCH-1",
+    "Scout: CBT-0, KWL-1, PHY-1, SPC-2"
+];
